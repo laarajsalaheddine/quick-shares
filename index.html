@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>hello DD106</h1>
+    <p>
+        C'est une démo de comment dclarer des variable en JS et faire une boucle pour afficher un email 10 fois dans la
+        console.
+    </p>
+
+    <!-- <label for="spacialty">spécialité:</label>
+        <input type="text" 
+                    id="spacialty" 
+                    class="spacialty" 
+                    placeholder="Ex. Dév Full snack" 
+                    name="spacialty" required>
+        -->
+
+    <button type="button" onclick="showPrompt()">Afficher prompt</button>
+    <button type="button" onclick="showConfirm()">Confirmer la suppression</button>
+
+    <script>
+
+        /*
+            var
+            let
+            const
+        */
+
+        // Afficher l'email 10 fois dans la console 
+        /*
+            for
+            while
+            do .... while
+            fonction recursive (!)
+        */
+        let monEmail = "test@mail.com";
+        let iteratorIndex = 0;
+        const MODULE_NAME = "Programmer en JS";
+        /*
+        while (iteratorIndex < 10) {
+            monEmail += iteratorIndex;
+            console.log(monEmail);
+            iteratorIndex++;
+        }
+        */
+
+        //scoop == portée d'une variable
+        // Exemple portée (scope): 
+        // niveau block (boocle for, if, switch ...)
+        // niveau fonction
+        // niveau global
+
+        /*
+        try {
+            MODULE_NAME = "Programmer en JS" + " avancé";
+        } catch (error) {
+            console.error("Erreur : " + error.message);
+        }
+        */
+
+        /*
+        for (let iterateur = 0; iterateur <= 10; iterateur++) {
+            console.log(iterateur);
+            console.log("hello")
+        }
+        */
+
+
+
+        /*Genre de type en JS*/
+        /* type pirimitive: 
+            - int
+            - double/float
+            - string (chaine de caracteres)
+            - boolean (true/false)
+            - null
+            - undefined
+        */
+
+        /* type d'objet: 
+            - array
+            - double/float
+            - string (chaine de caracteres)
+            - boolean (true/false)
+            - null
+            - undefined
+        */
+
+        let prenom = "Salaheddine";
+        let nom = 'LAARAJ';
+        let specialité = "Génie logiciel";
+        let age = 28;
+        let isAdult = true;
+        //let skilles = ["HTML", "CSS", "JS", "PHP"];
+        function saluerFunciton() {
+            return "Bonjour ";
+        };
+        let saluerFuncitonResult = saluerFunciton();
+
+        let saluer33333 = saluerFuncitonResult + ", ton nom est " + nom + ", et ton prénom est " + prenom + ". Tu as " + age + " ans et ta spécialité est " + specialité + ". Es-tu majeur ? " + isAdult;
+        let saluer44 = `${() => {
+            // line 1
+            // line 1
+            // line 1
+            // line 1
+            return "Bonjour "
+        }}, ton nom est ${nom},
+                        et ton prénom est ${prenom}.
+                        Tu as ${age}
+                        ans et ta spécialité est ${specialité}.
+                        Es-tu majeur ? ${isAdult}`;
+
+        /*
+          let saluer2 = `kQSDHKJQSDFH ${prenom} bienvenue!`;
+          let sayHello = 
+        */
+        let phrase = `Bonjour ${nom}`;
+
+
+
+        console.clear()
+
+
+
+        let id1 = Symbol("id");
+        let id2 = Symbol("id");
+
+        console.log(id1);     // false
+        console.log(id2);     // false
+        console.log(id1 === id2);     // false
+        console.clear()
+        console.log(
+            !(10 > 5) || (8 == 2)
+        );
+
+        console.clear()
+        //alert("Bonjour, bienvenue sur notre site web !");
+        let speciltyInputFromPrompt = null
+        let confirmation = null
+
+
+        function showPrompt() {
+            //userInput = speciltyInput.value
+            speciltyInputFromPrompt = prompt("Entrez votre spécialité : ");
+            console.log(
+                speciltyInputFromPrompt
+            );
+        }
+
+        function showConfirm() {
+            //userInput = speciltyInput.value
+            confirmation = confirm("Are you sure ?????? : ");
+            console.log(
+                confirmation
+            );
+        }
+
+        /*
+            alert ==> afficher un message
+            prompt ==> demander une saisie utilisateur
+            confirm ==> demander une confirmation (oui/non) 
+        */
+    </script>
+</body>
+
+</html>
