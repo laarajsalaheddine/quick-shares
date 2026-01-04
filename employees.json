@@ -6,7 +6,7 @@
     "email": "ahmed.elmansouri@company.ma",
     "department": "IT",
     "isActive": true,
-    "createdAt": "2023-02-14T09:23:45Z"
+    "createdAt": 1676366625
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "email": "sara.benali@company.ma",
     "department": "RH",
     "isActive": true,
-    "createdAt": "2022-11-03T14:10:12Z"
+    "createdAt": 1667484612
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "email": "youssef.amrani@company.ma",
     "department": "Finance",
     "isActive": false,
-    "createdAt": "2021-06-21T08:45:30Z"
+    "createdAt": 1624265130
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "email": "nadia.lahlou@company.ma",
     "department": "IT",
     "isActive": true,
-    "createdAt": "2023-08-01T11:05:18Z"
+    "createdAt": 1690887918
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "email": "karim.ziani@company.ma",
     "department": "Finance",
     "isActive": true,
-    "createdAt": "2020-09-15T16:40:55Z"
+    "createdAt": 1600188055
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "email": "imane.ouazzani@company.ma",
     "department": "RH",
     "isActive": true,
-    "createdAt": "2022-01-27T10:12:03Z"
+    "createdAt": 1643278323
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "email": "hassan.berrada@company.ma",
     "department": "IT",
     "isActive": false,
-    "createdAt": "2019-04-09T07:55:41Z"
+    "createdAt": 1554796541
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "email": "salma.tazi@company.ma",
     "department": "RH",
     "isActive": true,
-    "createdAt": "2024-01-12T13:30:00Z"
+    "createdAt": 1705066200
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "email": "omar.kabbaj@company.ma",
     "department": "Finance",
     "isActive": true,
-    "createdAt": "2021-10-18T09:47:22Z"
+    "createdAt": 1634540842
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "email": "fz.idrissi@company.ma",
     "department": "IT",
     "isActive": true,
-    "createdAt": "2022-05-06T15:18:09Z"
+    "createdAt": 1651850289
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "email": "rachid.mouline@company.ma",
     "department": "Finance",
     "isActive": false,
-    "createdAt": "2018-12-02T08:20:10Z"
+    "createdAt": 1543738810
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "email": "khadija.elfassi@company.ma",
     "department": "RH",
     "isActive": true,
-    "createdAt": "2023-04-19T12:00:00Z"
+    "createdAt": 1681905600
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "email": "mehdi.skalli@company.ma",
     "department": "IT",
     "isActive": true,
-    "createdAt": "2020-07-30T17:42:36Z"
+    "createdAt": 1596121356
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "email": "asmae.chraibi@company.ma",
     "department": "RH",
     "isActive": false,
-    "createdAt": "2021-02-11T09:09:09Z"
+    "createdAt": 1613034549
   },
   {
     "id": 15,
@@ -132,6 +132,6 @@
     "email": "anas.boulahfa@company.ma",
     "department": "IT",
     "isActive": true,
-    "createdAt": "2024-03-05T10:25:44Z"
+    "createdAt": 1709634344
   }
 ]
