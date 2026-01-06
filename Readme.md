@@ -1,1 +1,1 @@
-# I use this repo to share stuff people from different areas i work in
+# I use this repo to share stuff
