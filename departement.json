@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "IT", "description": "Infrastructure et support", "isActive": true, "createdAt": 1700000000 },
+  { "id": 2, "name": "RH", "description": "Recrutement, paie et administration du personnel", "isActive": true, "createdAt": 1700124800 },
+  { "id": 3, "name": "Finance", "description": "Comptabilité, trésorerie et reporting", "isActive": true, "createdAt": 1700251200 },
+  { "id": 4, "name": "Achats", "description": "Sourcing, négociation et gestion des fournisseurs", "isActive": true, "createdAt": 1700377600 },
+  { "id": 5, "name": "Marketing", "description": "Communication, acquisition et campagnes", "isActive": true, "createdAt": 1700504000 },
+  { "id": 6, "name": "Commercial", "description": "Prospection, ventes et relation client", "isActive": true, "createdAt": 1700630400 },
+  { "id": 7, "name": "Support Client", "description": "Assistance, tickets et satisfaction client", "isActive": true, "createdAt": 1700756800 },
+  { "id": 8, "name": "Production", "description": "Planification, fabrication et contrôle qualité", "isActive": true, "createdAt": 1700883200 },
+  { "id": 9, "name": "Logistique", "description": "Stock, expédition et transport", "isActive": true, "createdAt": 1701009600 },
+  { "id": 10, "name": "Qualité", "description": "Processus, audits et amélioration continue", "isActive": true, "createdAt": 1701136000 },
+  { "id": 11, "name": "Juridique", "description": "Contrats, conformité et gestion des risques", "isActive": false, "createdAt": 1701262400 },
+  { "id": 12, "name": "R&D", "description": "Innovation, prototypage et tests", "isActive": true, "createdAt": 1701388800 },
+  { "id": 13, "name": "Data", "description": "BI, analyse de données et gouvernance", "isActive": true, "createdAt": 1701515200 },
+  { "id": 14, "name": "Sécurité", "description": "Cybersécurité, politiques et sensibilisation", "isActive": true, "createdAt": 1701641600 },
+  { "id": 15, "name": "Administration", "description": "Services généraux, accueil et gestion interne", "isActive": false, "createdAt": 1701768000 }
+]
