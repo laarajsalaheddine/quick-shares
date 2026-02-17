@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CRUD Operations</h1>
+
+        <form id="crudForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="phone" placeholder="Phone" required>
+            <button type="button" id="btnAdd">Add</button>
+        </form>
+
+        <table border="1" cellpadding="10" id="data-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        button.edit,
+        button.delete {
+            padding: 5px 10px;
+            margin: 2px;
+        }
+    </style>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
