@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipuler des chaines de caractères</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        /*
+         // EX 2
+         // toUppercase et toLowerCase
+         let fullName = "alexander lewis armstrong";
+         let firtsSpace = fullName.indexOf(" ");
+         let lastSpace = fullName.lastIndexOf(" ");
+         // decmoposer la phrase:
+         let firstName = fullName.slice(0, firtsSpace);
+         let middleName = fullName.slice(firtsSpace + 1, lastSpace);
+         let lastName = fullName.slice(lastSpace + 1);
+         /*
+          function capitalize(leMot) {
+              return leMot.charAt(0).toUpperCase() + leMot.slice(1);
+          }
+
+        let capitalize = (leMot) => leMot.charAt(0).toUpperCase() + leMot.slice(1);
+
+
+        // Cibler et transformer la première lettre de chaque mot en majuscule:
+
+        let resultat = `${capitalize(lastName).toUpperCase()} ${capitalize(firstName)} ${capitalize(middleName)}`;
+
+        console.log(firstName)
+        console.log(middleName)
+        console.log(lastName)
+        console.log(resultat)
+            */
+
+
+        let sentence = "   Learning JavaScript strings is fun and useful   ";
+        let nbrMots = 0;
+        let nombreCaractereSansExpace = 0;
+        sentence = sentence.trim()
+
+        nbrMots = sentence.split(" ").length;
+        nombreCaractereSansExpace = sentence.replaceAll(" ", "").length;
+      
+        console.log({
+            words:nbrMots,
+            letters:nombreCaractereSansExpace,
+        })
+
+    </script>
+</body>
+
+</html>

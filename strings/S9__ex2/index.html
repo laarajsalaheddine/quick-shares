@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipuler des chaines de caractères</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        // EX 1
+        let email = "  Mahmoud.QamarEDDINE Gmail.Com  ";
+        let resultat = "";
+        let isEmailValide = false;
+        // phase A
+        resultat = email.trim()
+        // phase B (basé sur A)
+        resultat = resultat.toLowerCase()
+        // phase C (basé sur B)
+
+        if (resultat.includes("@") && resultat.endsWith(".com")) {
+            isEmailValide = true;
+        } else {
+            isEmailValide = false;
+        }
+
+
+
+        (isEmailValide) ? console.log("Email valide") : console.log("Email invalide ___")
+        console.log(isEmailValide ? "Email valide" : "Email invalide ___")
+
+        console.log(resultat)
+
+    </script>
+</body>
+
+</html>
