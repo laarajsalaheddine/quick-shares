@@ -1,0 +1,12 @@
+[
+  { "id": 1, "title": "Introduction à JavaScript", "content": "Les bases du langage JavaScript pour les débutants." },
+  { "id": 2, "title": "Comprendre le DOM", "content": "Manipulation des éléments HTML avec JavaScript." },
+  { "id": 3, "title": "Les événements en JS", "content": "Gérer les interactions utilisateur avec addEventListener." },
+  { "id": 4, "title": "Fetch API", "content": "Comment consommer une API REST en JavaScript." },
+  { "id": 5, "title": "Introduction à Node.js", "content": "Créer un serveur backend simple avec Node.js." },
+  { "id": 6, "title": "Express.js Basics", "content": "Créer des routes et gérer les requêtes HTTP." },
+  { "id": 7, "title": "MongoDB CRUD", "content": "Opérations Create, Read, Update, Delete avec MongoDB." },
+  { "id": 8, "title": "Authentification JWT", "content": "Sécuriser une API avec JSON Web Tokens." },
+  { "id": 9, "title": "Introduction à React", "content": "Créer des composants et gérer le state." },
+  { "id": 10, "title": "Redux expliqué", "content": "Gérer le state global dans une application React." }
+]
