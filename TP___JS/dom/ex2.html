@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ex2 - Classes</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="box">Contenu</div>
+  <br>
+  <button id="addBtn">Ajouter classe</button>
+  <button id="removeBtn">Retirer classe</button>
+  <button id="toggleBtn">Toggle classe</button>
+
+  <script>
+    const box = document.getElementById("box");
+    const addBtn = document.getElementById("addBtn");
+    const removeBtn = document.getElementById("removeBtn");
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    addBtn.addEventListener("click", function() {
+      box.classList.add("highlight");
+    });
+
+    removeBtn.addEventListener("click", function() {
+      box.classList.remove("highlight");
+    });
+
+    toggleBtn.addEventListener("click", function() {
+      box.classList.toggle("highlight");
+    });
+  </script>
+
+</body>
+</html>

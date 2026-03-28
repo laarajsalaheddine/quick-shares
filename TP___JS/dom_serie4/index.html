@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 🔵 TOP: FORM -->
+    <div class="form-section">
+      <h2>Créer une tâche</h2>
+
+      <div class="form-grid">
+        <form id="task-form" title="abc">
+          <label for="title">Titre</label>
+          <input type="text" placeholder="Titre" id="title">
+
+          <label for="email">Email responsable</label>
+          <input type="email" placeholder="Email responsable" id="email">
+
+          <label for="description">Description</label>
+          <textarea placeholder="Description" id="description"></textarea>
+
+          <label for="password">Mot de passe admin</label>
+          <input type="password" placeholder="Mot de passe admin" id="password">
+
+          <label for="priority">Priorité</label>
+          <select id="priority">
+            <option value=""></option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+
+          <label>Type</label>
+          <div class="radio-group">
+            <label><input class="type-radio" type="radio" name="type" value="bug" checked> Bug</label>
+            <label><input class="type-radio" type="radio" name="type" value="feature"> Feature</label>
+            <label><input class="type-radio" type="radio" name="type" value="improvement"> Improvement</label>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="completed"> Completed
+          </label>
+      </div>
+
+      <div class="actions">
+        <button id="addBtn" type="submit">Ajouter</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+      </form>
+    </div>
+
+    <!-- 🟢 BOTTOM: TASK LIST -->
+    <div class="list-section">
+      <h2>Liste des tâches</h2>
+
+      <div id="taskList">
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Email</th>
+              <th>Description</th>
+              <th>Priorité</th>
+              <th>Type</th>
+              <th>Statut</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="empty-row" id="empty-row">
+              <td colspan="7" style="text-align: center; color: #999; font-style: italic;">No tasks available</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>

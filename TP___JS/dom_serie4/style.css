@@ -1,0 +1,439 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f4f6f9;
+}
+
+/* Layout global */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.list-section,
+.form-section {
+    width: 60%;
+    margin: 0px auto;
+
+}
+
+/* FORM */
+.form-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+}
+
+textarea {
+    grid-column: auto;
+    height: 80px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Buttons */
+.actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+}
+
+button.secondary {
+    background: #6c757d;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* LIST */
+.list-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.list-section h2 {
+    margin-bottom: 15px;
+}
+
+/* Task Card */
+.task {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fafafa;
+}
+
+.task h3 {
+    margin: 0;
+}
+
+.task p {
+    margin: 5px 0;
+}
+
+/* Actions */
+.task-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button {
+    background: #28a745;
+}
+
+.task-actions button.delete {
+    background: #dc3545;
+}
+
+/* TABLE STYLES */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.task-table thead {
+    background: #F3F3F3;
+}
+
+.task-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.task-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 14px;
+}
+
+.task-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.task-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.task-table tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+.task-table tbody tr:nth-child(even):hover {
+    background-color: #f0f2f5;
+}
+
+.task-table button.delete {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.task-table button.delete:hover {
+    background: #c82333;
+}
+
+.task-table button.edit {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-right: 5px;
+}
+
+.task-table button.edit:hover {
+    background: #218838;
+}
+
+.task-table .empty-row {
+    background-color: #f9f9f9 !important;
+}
+
+.task-table .empty-row:hover {
+    background-color: #f9f9f9 !important;
+}
+
+.task-table .empty-row td {
+    padding: 30px 15px;
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet: max-width 1024px */
+@media (max-width: 1024px) {
+    .list-section,
+    .form-section {
+        width: 90%;
+    }
+
+    .container {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .form-section,
+    .list-section {
+        padding: 15px;
+    }
+
+    .task-table th,
+    .task-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile: max-width 768px */
+@media (max-width: 768px) {
+    .list-section,
+    .form-section {
+        width: 100%;
+        margin: 0;
+    }
+
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .form-section,
+    .list-section {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .form-section h2,
+    .list-section h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    input,
+    textarea,
+    select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    button {
+        padding: 10px 12px;
+        font-size: 14px;
+        flex: 1;
+    }
+
+    .actions {
+        gap: 8px;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .radio-group label {
+        margin-bottom: 0;
+        font-size: 13px;
+    }
+
+    /* Table responsiveness */
+    .task-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .task-table tbody,
+    .task-table thead {
+        display: block;
+    }
+
+    .task-table thead {
+        background: #F3F3F3;
+    }
+
+    .task-table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .task-table th,
+    .task-table td {
+        display: block;
+        padding: 10px;
+        text-align: left;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .task-table th {
+        background: #f3f3f3;
+        font-weight: 600;
+        padding: 10px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .task-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        float: left;
+        clear: left;
+        margin-right: 10px;
+        color: #666;
+    }
+
+    .task-table tbody tr {
+        background-color: white;
+    }
+
+    .task-table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .task-table .empty-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 15px;
+    }
+
+    .task-table .empty-row td {
+        padding: 10px;
+    }
+}
+
+/* Small Mobile: max-width 480px */
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .form-section,
+    .list-section {
+        padding: 12px;
+    }
+
+    .form-section h2,
+    .list-section h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    .task-table th,
+    .task-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .task-table button.edit,
+    .task-table button.delete {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}

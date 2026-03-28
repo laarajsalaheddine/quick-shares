@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calculate(n1, n2, operateur) {
+            let resultat = null
+            if (operateur !== "+" || operateur !== "-" || operateur !== "*" || operateur !== "/") {
+                return 'Op non valide';
+            }
+            if (n2 === 0)
+                return "Impossible de diviser sur 0"
+            if (typeof n1 === "number" && typeof n2 === "number") {
+                resultat = eval(n1 + operateur + n2)
+            }
+
+            return resultat;
+        }
+
+    </script>
+</body>
+
+</html>

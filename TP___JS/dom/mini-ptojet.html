@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Générateur de citations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #quote {
+      font-size: 20px;
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Générateur de citations</h1>
+
+  <div id="quote">
+    Cliquez sur le bouton pour générer une citation
+  </div>
+
+  <button id="generateBtn">Générer</button>
+
+  <script>
+    // 1️⃣ Tableau de citations
+    const quotes = [
+      "Le succès est la somme de petits efforts répétés chaque jour.",
+      "N'abandonne jamais.",
+      "La pratique rend parfait.",
+      "Crois en toi.",
+      "Chaque jour est une nouvelle opportunité."
+    ];
+
+    // 2️⃣ Sélections DOM
+    const quoteElement = document.getElementById("quote");
+    const button = document.getElementById("generateBtn");
+
+    // 3️⃣ Fonction pour générer une citation aléatoire
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.textContent = quotes[randomIndex];
+    }
+
+    // 4️⃣ Événement click
+    button.addEventListener("click", generateQuote);
+  </script>
+
+</body>
+</html>

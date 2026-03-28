@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Task Manager</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        Hello world
+        <!-- LEFT COLUMN -->
+        <div class="left">
+
+            <h2>Create Task</h2>
+            <form id="taskForm">
+
+                <label>Priority</label>
+                <select id="priority">
+                    <option value="1">Low</option>
+                    <option value="3">High</option>
+                </select>
+
+                <div class="radio-group">
+                    <label><input type="radio" name="type" class="task-type" value="Bug" checked> Bug</label>
+                    <label><input type="radio" name="type" class="task-type" value="Improvement"> Improvement</label>
+                </div>
+
+                <label>
+                    <input type="checkbox" id="completed"> Task Completed
+                </label>
+
+                <button type="button" id="save">Save Task</button>
+
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+
+</body>
+</html>

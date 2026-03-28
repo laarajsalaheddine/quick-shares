@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ex4 - Liste dynamique</title>
+</head>
+<body>
+
+  <script>
+    const fruits = ["Apple", "Banana", "Orange"];
+
+    const ul = document.createElement("ul");
+
+    fruits.forEach(function(fruit) {
+      const li = document.createElement("li");
+      li.textContent = fruit;
+      ul.appendChild(li);
+    });
+
+    document.body.appendChild(ul);
+  </script>
+
+</body>
+</html>

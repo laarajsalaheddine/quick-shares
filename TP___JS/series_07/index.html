@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie 7</title>
+</head>
+
+<body>
+    <script>
+        /* Ex 1 */
+        /*
+        let voiture = {
+            marque: "marque 1",
+            model: "myModel",
+            annee: 2024,
+            afficherInfo: function () {
+
+                console.log(
+                    `Marque : ${voiture.marque}, Model : ${voiture.model}, annee: ${voiture.annee}, couleur: ${this.qsdfmqkdfm},`
+                );
+
+            }
+        } // fin d'objet
+
+        // ajouter un attribut(propriété) dynamiquement
+        voiture.qsdfmqkdfm = "black"
+
+
+
+        // modification
+        voiture.model = "test"
+
+
+        voiture.afficherInfo()
+
+        console.log(voiture)
+        */
+
+        /* Ex 2 */
+        // 1
+        const etudiants = [
+            {
+                nom: "ABDELHANNANE",
+                prenom: "MAROUANE",
+                age: 19,
+            },
+            {
+                nom: "Laanaya",
+                prenom: "Khadija ",
+                age: 18,
+            }
+            ,
+            {
+                nom: "RIYAHI",
+                prenom: "ANASSE ",
+                age: 20,
+            }
+        ];
+
+
+        //2
+        etudiants.push(
+            {
+                nom: "AZZINE",
+                prenom: "FATIMAZAHRA",
+                age: 21,
+            }
+        )
+        etudiants.push(
+            {
+                nom: "Laadaili",
+                prenom: "abdessamad",
+                age: 19,
+            }
+        )
+        // pop, shif, unshift, splice, slice, sort, reverse, find, filter, map, reduce, forEach, some, every, includes, indexOf, lastIndexOf, join, concat, flat, flatMap, fill, copyWithin
+        
+        // 3
+        let deletedEtudiant = etudiants.pop()
+        // 4
+        let premierEtudiant = etudiants[0];
+        premierEtudiant.nom = "ABDELHANNANE";
+
+
+        // 5
+        let chaineResultat = "";
+        let lineBreak = "";
+        etudiants.forEach(
+            function (element, idx) { // anonyme function
+                //i++ <=> i = i + 1 <=> i += 1
+                chaineResultat += lineBreak + `${element.nom}, ${element.prenom}, ${element.age}`;
+                lineBreak = "\n ";
+            }
+        );
+
+        console.log(chaineResultat)
+
+    </script>
+</body>
+
+</html>

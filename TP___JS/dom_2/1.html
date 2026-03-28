@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ex3</title>
+</head>
+<body>
+
+  <div class="card">
+    <p>Carte 1</p>
+    <button>Supprimer</button>
+  </div>
+
+  <div class="card">
+    <p>Carte 2</p>
+    <button>Supprimer</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        const card = this.closest(".card");
+        card.remove();
+      });
+    });
+  </script>
+
+</body>
+</html>
