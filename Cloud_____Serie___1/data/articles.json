@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction à JavaScript",
+    "content": "Les bases du langage JavaScript pour les débutants."
+  },
+  {
+    "id": 2,
+    "title": "Comprendre le DOM",
+    "content": "Manipulation des éléments HTML avec JavaScript."
+  }
+]
