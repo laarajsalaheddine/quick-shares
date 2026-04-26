@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4 - Gérer les événements et $(this)</title>
+    <style>
+        .active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button class="choice">PHP</button>
+    <button class="choice">JavaScript</button>
+    <button class="choice">jQuery</button>
+    <button class="choice">Laravel</button>
+
+    <p id="selectedLanguage"></p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $('.choice').on('click', function () {
+                $('.choice').removeClass('active');
+                $(this).addClass('active');
+
+                // affiche le langage sélectionné
+                $('#selectedLanguage').text('Langage choisi : ' + $(this).text());
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 7 - Mini CRUD jQuery : gestion des étudiants</title>
+</head>
+
+<body>
+    <form id="studentForm">
+        <input type="hidden" id="studentIndex">
+        <input type="text" id="fullname" placeholder="Nom complet">
+        <input type="email" id="email" placeholder="Email">
+        <input type="number" id="age" placeholder="Âge">
+        <select id="level">
+            <option value="">Choisir un niveau</option>
+            <option value="Débutant">Débutant</option>
+            <option value="Intermédiaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+        </select>
+        <button type="submit" id="saveBtn">Enregistrer</button>
+        <button type="button" id="resetBtn">Annuler</button>
+    </form>
+
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th>Nom complet</th>
+                <th>Email</th>
+                <th>Âge</th>
+                <th>Niveau</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentsBody">
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            var students = [];
+
+            function renderStudents() {
+                $('#studentsBody').empty();
+
+                students.forEach(function (student, index) {
+                    // construction de la ligne pour chaque étudiant
+                    var row = '<tr>' +
+                        '<td>' + student.fullname + '</td>' +
+                        '<td>' + student.email + '</td>' +
+                        '<td>' + student.age + '</td>' +
+                        '<td>' + student.level + '</td>' +
+                        '<td>' +
+                        '<button type="button" class="editBtn" data-index="' + index + '">Modifier</button> ' +
+                        '<button type="button" class="deleteBtn" data-index="' + index + '">Supprimer</button>' +
+                        '</td>' +
+                        '</tr>';
+
+                    $('#studentsBody').append(row);
+                });
+            }
+
+            function resetForm() {
+                $('#studentIndex').val('');
+                $('#studentForm')[0].reset();
+                $('#saveBtn').text('Enregistrer');
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function validateForm(fullname, email, age, level) {
+                if (fullname === '' || email === '' || age === '' || level === '') {
+                    alert('Tous les champs sont obligatoires.');
+                    return false;
+                }
+
+                if (!isValidEmail(email)) {
+                    alert('Email invalide.');
+                    return false;
+                }
+
+                if (Number(age) <= 0) {
+                    alert('Âge invalide.');
+                    return false;
+                }
+
+                return true;
+            }
+
+            $('#studentForm').on('submit', function (event) {
+                event.preventDefault();
+
+                var studentIndex = $('#studentIndex').val();
+                var fullname = $('#fullname').val().trim();
+                var email = $('#email').val().trim();
+                var age = $('#age').val().trim();
+                var level = $('#level').val();
+
+                if (!validateForm(fullname, email, age, level)) {
+                    return;
+                }
+
+                var student = {
+                    fullname: fullname,
+                    email: email,
+                    age: age,
+                    level: level
+                };
+
+                if (studentIndex === '') {
+                    students.push(student);
+                } else {
+                    students[Number(studentIndex)] = student;
+                }
+
+                renderStudents();
+                resetForm();
+            });
+
+            $('#studentsBody').on('click', '.editBtn', function () {
+                var index = $(this).data('index');
+                var student = students[index];
+
+                $('#studentIndex').val(index);
+                $('#fullname').val(student.fullname);
+                $('#email').val(student.email);
+                $('#age').val(student.age);
+                $('#level').val(student.level);
+                $('#saveBtn').text('Modifier');
+            });
+
+            $('#studentsBody').on('click', '.deleteBtn', function () {
+                var index = $(this).data('index');
+
+                students.splice(index, 1);
+                renderStudents();
+                resetForm();
+            });
+
+            $('#resetBtn').on('click', function () {
+                resetForm();
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 5 - Traverser le DOM avec une liste de cartes</title>
+    <style>
+        .selected {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <h3>Produit A</h3>
+        <p class="price">Prix : 100 DH</p>
+        <p class="status">Disponible</p>
+        <button class="selectBtn">Choisir</button>
+        <button class="hideBtn">Masquer le prix</button>
+    </div>
+
+    <div class="product-card">
+        <h3>Produit B</h3>
+        <p class="price">Prix : 150 DH</p>
+        <p class="status">Disponible</p>
+        <button class="selectBtn">Choisir</button>
+        <button class="hideBtn">Masquer le prix</button>
+    </div>
+
+    <div class="product-card">
+        <h3>Produit C</h3>
+        <p class="price">Prix : 200 DH</p>
+        <p class="status">Indisponible</p>
+        <button class="selectBtn">Choisir</button>
+        <button class="hideBtn">Masquer le prix</button>
+    </div>
+
+    <div class="product-card">
+        <h3>Produit D</h3>
+        <p class="price">Prix : 250 DH</p>
+        <p class="status">Disponible</p>
+        <button class="selectBtn">Choisir</button>
+        <button class="hideBtn">Masquer le prix</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $('.selectBtn').on('click', function () {
+                $('.product-card').removeClass('selected');
+                $(this).closest('.product-card').addClass('selected');
+            });
+
+            $('.hideBtn').on('click', function () {
+                $(this).siblings('.price').hide();
+            });
+        });
+    </script>
+</body>
+</html>

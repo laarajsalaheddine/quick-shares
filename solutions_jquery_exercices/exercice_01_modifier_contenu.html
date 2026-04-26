@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 1 - Modifier le contenu d’une page</title>
+
+</head>
+<body>
+    <h1 id="title">Bienvenue</h1>
+    <p id="description">Texte initial</p>
+    <button id="changeText">Changer le texte</button>
+    <button id="changeHtml">Changer le HTML</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+
+            // bouton qui change le texte brut
+            $('#changeText').on('click', function () {
+                $('#title').text('Titre modifié avec jQuery');
+                $('#description').text('Le texte du paragraphe a été modifié.');
+            });
+
+            $('#changeHtml').on('click', function () {
+                $('#description').html('Texte avec une balise HTML : <strong>important</strong>');
+            });
+
+        });
+    </script>
+</body>
+</html>

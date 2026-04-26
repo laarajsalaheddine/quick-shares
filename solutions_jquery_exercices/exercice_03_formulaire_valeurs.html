@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 3 - Lire les valeurs d’un formulaire</title>
+
+</head>
+<body>
+    <input type="text" id="firstname" placeholder="Prénom">
+    <input type="text" id="lastname" placeholder="Nom">
+    <input type="number" id="age" placeholder="Âge">
+    <button id="showInfo">Afficher</button>
+    <div id="result"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#showInfo').on('click', function () {
+                var firstname = $('#firstname').val().trim();
+                var lastname = $('#lastname').val().trim();
+                var age = $('#age').val().trim();
+
+                console.log('valeurs :', firstname, lastname, age);
+
+                if (firstname === '' || lastname === '' || age === '') {
+                    $('#result').text('Erreur : tous les champs sont obligatoires.');
+                    return;
+                }
+
+                $('#result').text('Prénom : ' + firstname + ', Nom : ' + lastname + ', Âge : ' + age + ' ans.');
+            });
+        });
+    </script>
+</body>
+</html>

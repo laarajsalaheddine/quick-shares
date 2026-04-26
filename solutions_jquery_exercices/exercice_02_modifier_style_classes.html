@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 2 - Modifier le style et les classes CSS</title>
+    <style>
+        .active {
+            background-color: yellow;
+        }
+
+        .warning {
+            color: red;
+        }
+
+        .selected {
+            border: 2px solid black;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="card">
+        <h2>Produit 1</h2>
+        <p>Prix : 150 DH</p>
+    </div>
+    <button id="highlight">Mettre en évidence</button>
+    <button id="removeHighlight">Retirer le style</button>
+    <button id="toggleMode">Activer / désactiver</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function () {
+
+            $('#highlight').on('click', function () {
+                // active la mise en évidence
+                $('#card').addClass('active').css('padding', '10px');
+            });
+
+            $('#removeHighlight').on('click', function () {
+                $('#card').removeClass('active warning selected');
+                $('#card').css('padding', '');
+            });
+
+            $('#toggleMode').on('click', function () {
+                $('#card').toggleClass('warning');
+            });
+
+        });
+    </script>
+</body>
+</html>
