@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <div class="main-block">
+        <div class="left-part">
+            <h1>Vous enregistrer au cours</h1>
+        </div>
+
+    </div>
+
+
+    <script>
+        // 1
+        function validateFields() {
+            let tousEstValide = true; //flag
+            const form = $("form");
+            const input = form.find('input'); // list
+            const select = form.find('select'); // seul element
+
+            if (select.val() === "course-type") {
+                tousEstValide = false;
+            }
+
+            input.each(function (elt) {
+                if (elt.val() === "") {
+                    tousEstValide = false;
+                    return;
+                }
+            });
+        }
+
+        validateFields();
+
+
+        // 2
+
+        function VerifieTel() {
+            let tel = $("input[name=tel]").val();
+            if (tel.length < 10) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // 3 avec javascript
+
+        // function msmldkfldf() {
+        //     const main1 = document.getElementsByClassName("main-block")[0];
+        //     const main2 = document.querySelector(".main-block")
+
+        //     const form = document.createElement("form");
+        //     const formHTML = `
+        //     <div class="title">
+        //         <h2>Inscrivez-vous ici</h2>
+        //     </div>
+
+        //     <div class="info">
+        //         <input type="text" name="name" placeholder="Nom complet">
+        //         <input type="text" name="mail" placeholder="Email">
+        //         <input type="text" name="tel" placeholder="Nméro de téléphone">
+
+        //         <select>
+        //             <option value="course-type" selected>Type de cours*</option>
+        //             <option value="short-courses">cours courts</option>
+        //             <option value="featured-courses">Cours facturé</option>
+        //         </select>
+        //     </div>
+
+        //     <input type="button" value="Envoyer">
+        // `;
+        //     main2.innerHTML = formHTML;
+        // }
+        // msmldkfldf();
+
+
+        $(".main-block").append(
+            `
+            <form>
+                <div class="title">
+                    <h2>Inscrivez-vous ici</h2>
+                </div>
+
+                <div class="info">
+                    <input type="text" name="name" placeholder="Nom complet">
+                    <input type="text" name="mail" placeholder="Email">
+                    <input type="text" name="tel" placeholder="Nméro de téléphone">
+
+                    <select>
+                    </select>
+                </div>
+
+                <input type="button" class="button" value="Envoyer">
+            </form>   
+                `
+        );
+
+        // 4
+        $("head").append(
+            `
+            <style>
+                .main-block {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 25px;
+            }
+            .left-part, form {
+                padding: 25px;
+            }
+            .left-part {
+                text-align: center;
+            }
+            form {
+                background: rgba(0, 0, 0, 0.1);
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .info {
+                display: flex;
+                flex-direction: column;
+            }
+            input, select {
+                padding: 5px;
+                margin-bottom: 30px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid black;
+            }
+            .button {
+                width: 100%;
+            }
+            </style>
+            `
+        );
+
+        //5 
+        // 1
+        function viderChamps() {
+            const form = $("form");
+            const input = form.find('input'); // list
+            const select = form.find('select'); // seul element
+            select.val("");
+            input.each(function (elt) {
+                elt.val("");
+            });
+        }
+
+        function remplirType() {
+            let mdqlfksdf = {
+                types: [
+                    { nom: "cours 1", prix: 33 },
+                    { nom: "cours 2", prix: 4 }
+                ]
+            }
+
+            let contnetSelect = `
+                    <option value="course-type" selected>Type de cours*</option>
+            `;
+
+            // mdqlfksdf.types.each((elt) => {
+            //     console.log(elt);
+            // });
+
+            for (let i = 0; i < mdqlfksdf.types.length; i++) {
+                const element = mdqlfksdf.types[i];
+                console.log(element);
+
+                contnetSelect = `${contnetSelect}
+                        <option value="${element.nom}">${element.nom}</option>
+                `;
+
+            }
+
+            $('form select').append(contnetSelect);
+
+
+        }// fin foncitons
+
+        remplirType()
+
+    </script>
+</body>
+
+</html>
