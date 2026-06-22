@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label, form>button{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="" id="formId">
+            <label for="">Prenom</label>
+            <input type="text" placeholder="Prenom" id="prenom">
+            <label for="">Nom</label>
+            <input type="text" placeholder="Nom" id="nom">
+            <label for="">Age</label>
+            <input type="number" placeholder="Age" id="age">
+            <label for="">Ville</label>
+            <input type="text" placeholder="Ville" id="ville">
+            <button id="btn_send">
+                    Ajouter
+            </button>
+        </form>
+    </div>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Age</th>
+            <th>Ville</th>
+            <th>Actions</th>
+        </tr>
+        <tbody id="tbody">
+            <!-- // supposant que le tbody a un id : tbody -->
+
+        </tbody>
+    </table>
+
+    <div>
+        <h2>Details ligne:</h2>
+        <div id="ligne-info">
+
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
