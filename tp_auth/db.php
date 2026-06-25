@@ -1,13 +1,9 @@
 <?php
 try {
-    $host="localhost";
-    $dbname="auth_app";
-     $user="root";
-     $pass="";
-    $pdo =new PDO(
-        "mysql:host=$host;dbname=$dbname",
-        $user,
-        $pass 
+    $pdo = new PDO(
+        "mysql:host=localhost;dbname=auth_app",
+        "root",
+        ""
     );
 } catch (Exception $e) {
     echo "<pre>";
