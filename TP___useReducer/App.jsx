@@ -1,4 +1,4 @@
-import { useReducer, useState, createContext, useContext } from "react";
+import { useReducer, useState, createContext, useContext, useEffect } from "react";
 
 const ExpenseContext = createContext(null);
 const API = "http://localhost:3001/depenses"
@@ -6,6 +6,9 @@ const API = "http://localhost:3001/depenses"
 const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "LOAD_DATA":
+      return payload;
+
     case "ADD_EXPENSE":
       return [...state, { ...payload, id: Number(state[state.length - 1].id) + 1 }];
 
@@ -19,16 +22,11 @@ const reducer = (state, action) => {
       return state;
   }
 }
-const initialState = [
-  { id: 1, title: 'Transport', amount: 30 },
-  { id: 2, title: 'Nourriture', amount: 100 },
-  { id: 3, title: 'Loisirs', amount: 120 }
-]
-const defaultForm = { id: null, title: "", amount: 0 }
+const initialState = []
+const defaultForm = { title: "", amount: 0 }
+
 function ResumeDepenses() {
   const { depense } = useContext(ExpenseContext);
-
-
   return (
     <div>
       <h2>Mes dépenses</h2>
@@ -41,7 +39,7 @@ function ResumeDepenses() {
 }
 
 function FormulaireDepense() {
-  const { dispatch, formulaire, setformulaire } = useContext(ExpenseContext)
+  const { dispatch, formulaire, setformulaire, ajouter } = useContext(ExpenseContext)
 
   function handelchange(abc) {
     const { value, type, name, checked } = abc.target
@@ -51,15 +49,12 @@ function FormulaireDepense() {
   function handleSubmit(event) {
     event.preventDefault();
     if (!formulaire.id) {
-      dispatch(
-        { type: "ADD_EXPENSE", payload: formulaire }
-      )
+      ajouter(formulaire)
     } else {
       dispatch(
         { type: "UPDATE_EXPENSE", payload: formulaire }
       )
       setformulaire(defaultForm)
-
     }
 
   }
@@ -86,8 +81,6 @@ function ListeDepenses() {
     dispatch({ type: "DELETE_EXPENSE", payload: { id } })
   }
 
-
-
   function handleEdit(id) {
     const objetSelected = depense.find((p) => p.id === id);
     setformulaire({ title: objetSelected.title, amount: objetSelected.amount, id: objetSelected.id });
@@ -111,12 +104,50 @@ export default function App() {
     initialState
   )
   const [formulaire, setformulaire] = useState(defaultForm)
-
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  async function ajouter(donnee) {
+    setLoading(true);
+    try {
+      const response = await fetch(API, {
+        method: "POST",
+        body: JSON.stringify(donnee),
+        headers: {
+          "Content-type": "application/json"
+        }
+      });
+      if (!response.ok) throw new Error("Erreur lors du chargement des données");
+      const data = await response.json();
+      dispatch({ type: "ADD_EXPENSE", payload: data })
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setError(error.message)
+    } finally {
+      setLoading(false);
+    }
+  }
+  useEffect(
+    () => {
+      async function loadData() {
+        try {
+          const response = await fetch(API);
+          if (!response.ok) throw new Error("Erreur lors du chargement des données");
+          const data = await response.json();
+          dispatch({ type: "LOAD_DATA", payload: data })
+        } catch (error) {
+          setError(error.message)
+        }
+      }
+      loadData()
+    }, []);
   return (
     <div>
       <ExpenseContext.Provider value={{
-        depense, dispatch, formulaire, setformulaire
+        depense, dispatch, formulaire, setformulaire, ajouter
       }}>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {loading && <p style={{ color: "blue" }}>Chargement en cours...</p>}
         <ResumeDepenses />
         <FormulaireDepense />
         <ListeDepenses />
