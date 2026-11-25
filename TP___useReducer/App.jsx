@@ -1,99 +1,105 @@
-
 import { useReducer, useState, createContext, useContext } from "react";
 
-const ExpensesContext = createContext(null);
-/* *************** funcitons *************** */
-const depencesReducer = (state, action) => {
-  switch (action.type) {
+const ExpenseContext = createContext(null);
+const API = "http://localhost:3001/depenses"
+
+const reducer = (state, action) => {
+  const { type, payload } = action;
+  switch (type) {
     case "ADD_EXPENSE":
-      return [...state, { ...action.payload, id: Number(state[state.length - 1].id) + 1 }];
+      return [...state, { ...payload, id: Number(state[state.length - 1].id) + 1 }];
 
     case "DELETE_EXPENSE":
-      return state.filter((elt) => {
-        return elt.id != action.payload.id
-      });
+      return state.filter((s) => s.id !== payload.id)
 
     case "UPDATE_EXPENSE":
-      return state.map((elt) => {
-        return elt.id === action.payload.id ? {
-          ...elt,
-          titre: action.payload.titre,
-          montant: action.payload.montant
-        } : elt;
-      });
-
-    default: return state
+      return state.map((s) => s.id === payload.id ?
+        { ...s, title: payload.title, amount: payload.amount } : s)
+    default:
+      return state;
   }
 }
-/* *************** Componenet *************** */
+const initialState = [
+  { id: 1, title: 'Transport', amount: 30 },
+  { id: 2, title: 'Nourriture', amount: 100 },
+  { id: 3, title: 'Loisirs', amount: 120 }
+]
+const defaultForm = { id: null, title: "", amount: 0 }
 function ResumeDepenses() {
-  const { listDepences } = useContext(ExpensesContext);
+  const { depense } = useContext(ExpenseContext);
+
+
   return (
     <div>
       <h2>Mes dépenses</h2>
-      <p>Nombre de dépenses : {
-        listDepences.length
-      }</p>
-      <p>Montant total : {
-        listDepences.reduce((acc, elt) => {
-          return Number(acc) + Number(elt.montant);
-        }, 0)
-      } DH</p>
+      <p>Nombre de dépenses : {depense.length}</p>
+      <p>Montant total : {depense.reduce((acc, lt) => {
+        return Number(acc) + Number(lt.amount);
+      }, 0)} DH</p>
     </div>
   );
 }
 
 function FormulaireDepense() {
-  const { formData, onHandleChange, depenceDistpatch } = useContext(ExpensesContext);
+  const { dispatch, formulaire, setformulaire } = useContext(ExpenseContext)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.id === null)
-      depenceDistpatch({ type: "ADD_EXPENSE", payload: formData })
-    else
-      depenceDistpatch({ type: "UPDATE_EXPENSE", payload: formData })
-  };
+  function handelchange(abc) {
+    const { value, type, name, checked } = abc.target
+    setformulaire({ ...formulaire, [name]: value })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!formulaire.id) {
+      dispatch(
+        { type: "ADD_EXPENSE", payload: formulaire }
+      )
+    } else {
+      dispatch(
+        { type: "UPDATE_EXPENSE", payload: formulaire }
+      )
+      setformulaire(defaultForm)
+
+    }
+
+  }
+
   return (
-    <div>
-      {JSON.stringify(formData)}
-      <hr />
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input type="text" placeholder="Titre"
-          name="titre" value={formData.titre}
-          onChange={(e) => onHandleChange(e)}
-        />
-        <input type="number" placeholder="Montant"
-          name="montant" value={formData.montant}
-          onChange={(e) => onHandleChange(e)}
-        />
-        <button type="submit">{formData.id !== null ? "Modifier" : "Ajouter"}</button>
-      </form>
-    </div>
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <input type="text" placeholder="Titre" name="title"
+        value={formulaire.title} onChange={(e) => handelchange(e)}
+      />
+      <input type="number" placeholder="Montant" name="amount"
+        value={formulaire.amount} onChange={(e) => handelchange(e)}
+      />
+      <button type="submit">{formulaire.id ? "Modifier" : "Ajouter"}</button>
+    </form>
   );
 }
 
 function ListeDepenses() {
-  const { listDepences, depenceDistpatch, onEdit, setFormData } = useContext(ExpensesContext);
-  const handleDele = (idParametre) => {
-    depenceDistpatch({
-      type: "DELETE_EXPENSE", payload: {
-        id: idParametre
-      }
-    })
-  }
-  const handleEdit = (id) => {
-    // la fonction "find" est immulatble donc elle renvoi
-    setFormData(onEdit(id))
+  const { depense, dispatch, setformulaire } = useContext(ExpenseContext);
+
+  function handleDelete(id) {
+    if (!confirm("Voulez-vous vraiment supprimer cette dépense ?"))
+      return;
+    dispatch({ type: "DELETE_EXPENSE", payload: { id } })
   }
 
+
+
+  function handleEdit(id) {
+    const objetSelected = depense.find((p) => p.id === id);
+    setformulaire({ title: objetSelected.title, amount: objetSelected.amount, id: objetSelected.id });
+  }
 
   return (
     <ul>
-      {listDepences.map((d) => (
-        <li key={d.id}>
-          {d.titre} -- {d.montant} DH
-          <button onClick={() => handleEdit(d.id)}>Modifier</button>
-          <button onClick={() => handleDele(d.id)}>Supprimer</button>
+      {depense.map(p => (
+        <li key={p.id}>
+          {p.title} - {p.amount}
+          <button onClick={() => handleEdit(p.id)}>Modifier</button>
+          <button onClick={() => handleDelete(p.id)}>Supprimer</button>
         </li>
       ))}
     </ul>
@@ -101,43 +107,20 @@ function ListeDepenses() {
 }
 
 export default function App() {
-  const initState = [
-    { id: 1, titre: "Transport", montant: 50 },
-    { id: 2, titre: "Nourriture", montant: 100 },
-    { id: 3, titre: "Loisirs", montant: 120 }
-  ];
-
-  const [listDepences, depenceDistpatch] = useReducer(depencesReducer, initState);
-  const [formData, setFormData] = useState({
-    id: null,
-    titre: "",
-    montant: 0,
-  });
-
+  const [depense, dispatch] = useReducer(reducer,
+    initialState
+  )
+  const [formulaire, setformulaire] = useState(defaultForm)
 
   return (
     <div>
-      <ExpensesContext.Provider value={
-        {
-          listDepences, formData,
-          depenceDistpatch,
-          onHandleChange: (e) => {
-            const { name, value, checked, type } = e.target;
-            setFormData({ ...formData, [name]: value })
-          },
-          setFormData,
-          onEdit: (id) => {
-            return listDepences.find((elt) => {
-              return elt.id === id
-            })
-          }
-        }
-      }>
+      <ExpenseContext.Provider value={{
+        depense, dispatch, formulaire, setformulaire
+      }}>
         <ResumeDepenses />
         <FormulaireDepense />
         <ListeDepenses />
-      </ExpensesContext.Provider>
-
+      </ExpenseContext.Provider>
     </div>
   );
 }
