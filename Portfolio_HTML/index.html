@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio personnel - Lina Benali</title>
+</head>
+<body>
+    <!-- En-tête et navigation -->
+    <header id="accueil">
+        <h1>Lina Benali</h1>
+        <p>Stagiaire en développement digital — Mes premiers pas dans le web</p>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#about">À propos</a>
+            <a href="#learn">Mes apprentissages</a>
+            <a href="#projects">Mini-projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- À propos de moi -->
+        <section id="about">
+            <h2>À propos de moi</h2>
+            <figure>
+                <img src="images/profil.png" alt="Photo de profil de Lina">
+                <figcaption>Bienvenue sur mon premier portfolio HTML !</figcaption>
+            </figure>
+            <p>Bonjour ! Je m'appelle Lina. Je suis stagiaire en développement digital et je commence à découvrir la création de sites web. J'aime apprendre de nouvelles choses et comprendre comment fonctionnent les pages Internet.</p>
+            <p>J'ai choisi cette formation parce que je souhaite apprendre à créer mes propres sites et, plus tard, développer des applications web. Pour le moment, je m'entraîne surtout à structurer mes pages avec HTML.</p>
+        </section>
+
+        <!-- Ce que j'apprends -->
+        <section id="learn">
+            <h2>Ce que j'apprends</h2>
+            <div class="learn">
+                <h3>Les technologies que je découvre</h3>
+                <ul>
+                    <li>HTML5 : structurer le contenu d'une page web.</li>
+                    <li>CSS3 : apprendre à mettre en forme les pages.</li>
+                    <li>JavaScript : découvrir l'interactivité.</li>
+                    <li>PHP : explorer la programmation côté serveur.</li>
+                </ul>
+            </div>
+            <div class="learn">
+                <h3>Mes objectifs d'apprentissage</h3>
+                <ol>
+                    <li>Créer une page HTML bien structurée.</li>
+                    <li>Construire un site composé de plusieurs pages.</li>
+                    <li>Apprendre à présenter un site avec CSS.</li>
+                    <li>Créer une application web complète.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Mes mini-projets -->
+        <section id="projects">
+            <h2>Mes mini-projets</h2>
+            <p>Voici quelques exercices réalisés pour pratiquer HTML.</p>
+            <article>
+                <h3>Mini-projet 1 — Ma page de présentation</h3>
+                <img src="images/presentation.png" alt="Illustration de la page de présentation">
+                <p>Une petite page avec un titre, une image et des paragraphes.</p>
+                <strong>Éléments HTML utilisés</strong>
+                <ul>
+                    <li>Titres et paragraphes</li>
+                    <li>Images</li>
+                    <li>Liens</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Mini-projet 2 — Emploi du temps</h3>
+                <img src="images/emploi-du-temps.png" alt="Illustration de l'emploi du temps">
+                <p>Une page HTML présentant un emploi du temps hebdomadaire.</p>
+                <strong>Éléments HTML utilisés</strong>
+                <ul>
+                    <li>Tableaux</li>
+                    <li>Titres</li>
+                    <li>Paragraphes</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Formulaire de contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Une question ou une idée ? Complétez le formulaire ci-dessous.</p>
+            <form>
+                <label for="nom">Nom complet :</label><br>
+                <input type="text" id="nom" name="nom" required><br>
+
+                <label for="email">Adresse e-mail :</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="sujet">Sujet :</label><br>
+                <select id="sujet" name="sujet">
+                    <option value="question">Question</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="autre">Autre</option>
+                </select><br>
+
+                <label for="message">Message :</label><br>
+                <textarea id="message" name="message" rows="5" cols="40" required></textarea><br>
+
+                <button type="submit">Envoyer</button>
+                <button type="reset">Effacer</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Lina Benali — Portfolio.</p>
+        <a href="#accueil">Retour en haut de la page</a>
+    </footer>
+</body>
+</html>
